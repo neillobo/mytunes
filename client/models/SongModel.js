@@ -6,7 +6,8 @@ var SongModel = Backbone.Model.extend({
       this.set({
         'title': data.title,
         'url'  : data.url,
-        'artist' : data.artist
+        'artist' : data.artist,
+        'count': 0
       });
     }
   },
@@ -26,6 +27,7 @@ var SongModel = Backbone.Model.extend({
 
   ended: function() {
     this.trigger('ended', this);
+    this.set('count', this.get('count') + 1);
   }
 
 });
