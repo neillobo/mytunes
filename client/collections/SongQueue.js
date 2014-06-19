@@ -9,7 +9,9 @@ var SongQueue = Songs.extend({
 
     this.on('ended', function () {
       this.remove(this.models[0]);
-      this.playFirst();
+      if (this.length) {
+        this.playFirst();
+      }
     }, this);
 
     this.on('add', function () {
@@ -17,12 +19,7 @@ var SongQueue = Songs.extend({
         this.playFirst();
       }
     }, this);
-
-    this.on('remove', function (model) {
-      console.log(this, 'removes', model);
-    }, this);
   },
-
 });
 
 SongQueue.prototype.playFirst = function () {
