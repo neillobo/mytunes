@@ -7,12 +7,6 @@ var SongQueueEntryView = Backbone.View.extend({
     this.render();
   },
 
-  events: {
-    'click': function () {
-      this.model.dequeue();
-    }
-  },
-
   render: function () {
     this.$el.text(this.model.attributes.artist + ' ' + this.model.attributes.title);
     return this.$el;
