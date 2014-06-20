@@ -3,6 +3,12 @@ var LibraryView = Backbone.View.extend({
 
   tagName: "table",
 
+  // events : {
+  //   'change playCount' : function(){
+  //     this.render();
+  //   }
+  // },
+
   initialize: function() {
     this.render();
   },

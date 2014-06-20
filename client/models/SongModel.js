@@ -6,7 +6,8 @@ var SongModel = Backbone.Model.extend({
       this.set({
         'title': data.title,
         'url'  : data.url,
-        'artist' : data.artist
+        'artist' : data.artist,
+        'playCount' : 0
       });
     }
   },
@@ -21,6 +22,10 @@ var SongModel = Backbone.Model.extend({
 
   play: function(){
     // Triggering an event here will also trigger the event on the collection
+    console.log(this);
+    this.set('playCount', this.attributes.playCount + 1);
+    console.log(this);
+    // console.log(this.get(this.playCount));
     this.trigger('play', this);
   },
 
